@@ -6,3 +6,11 @@ spring:
     name: catalog-service
 
 message: "Se levanta el microservicio catalog service"
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: 5
+    
+    
