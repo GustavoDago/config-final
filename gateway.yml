@@ -8,6 +8,8 @@ spring:
       gateway:
       locator:
         enabled: true
+      default-filters:
+        - FilterCustom
       routes:
         -id: id-catalog-service
         uri: lb://catalog-service
