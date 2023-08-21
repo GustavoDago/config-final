@@ -20,7 +20,6 @@ spring:
 eureka:
   client:
     register-with-eureka: false
-    #fetchRegistry: true
     fetchRegistry: false
     registry-fetch-interval-seconds: 5
     #SE QUITA SERVICE URL EUREKA PARA QUE NO SE REGISTRE (MAS ALLA DE COLOCAR EL   register-with-eureka EN VALOR false )
