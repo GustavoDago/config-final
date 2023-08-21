@@ -37,6 +37,11 @@ eureka:
   # EVALUAR SUMAR DEPENDENCIA PARA MEJORAR PREFORMANCE / Tolerancia a fallos
   #hystrix:
     #enabled: true
+
+# SUMO LOGGING PARA VER CUALQUIER PROBLEMA RELATIVO AL BALANCEO
+  logging:
+  level:
+    com.netflix.loadbalancer: DEBUG
   
 
 
