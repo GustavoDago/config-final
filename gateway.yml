@@ -33,11 +33,6 @@ eureka:
       #health-check-url-path: /actuator/health
   #server:
     #enable-self-preservation: false
-info:
-  application:
-    name: ${spring.application.name}
-    description: API Gateway para aplicación
-    version: 1.0.0
 
 
 #si fuera con puerto definido en la ruta de catalog y movies
