@@ -20,3 +20,19 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
+
+ # CONFIGURACIÓN CORRESPONDENTE A LA IMPLEMENTACIÓN DE FEIGN
+  feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+  # EVALUAR SUMAR DEPENDENCIA PARA MEJORAR PREFORMANCE / Tolerancia a fallos
+  #hystrix:
+    #enabled: true
+
+# SUMO LOGGING PARA VER CUALQUIER PROBLEMA RELATIVO AL BALANCEO
+  logging:
+  level:
+    com.netflix.loadbalancer: DEBUG
