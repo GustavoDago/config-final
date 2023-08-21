@@ -26,8 +26,8 @@ eureka:
   client:
     config:
       default:
-        connectTimeout: 5000
-        readTimeout: 5000
+        connectTimeout: 3000
+        readTimeout: 3000
   # EVALUAR SUMAR DEPENDENCIA PARA MEJORAR PREFORMANCE / Tolerancia a fallos
   #hystrix:
     #enabled: true
