@@ -6,6 +6,21 @@ spring:
   application:
     name: gateway
     cloud:
+       default-filters: #Filtro por defecto de todas las requests realizadas al gateway
+        - name: LogFilter
+      routes:
+        - id: productRoute #identificador de la ruta
+          uri: http://localhost:8082 #URL donde se hará el redirect según el predicado definido
+          predicates: #Reglas de análisis del request
+            - Path=/movies/** #path de URL de request a considerar
+        - id: userRoute #identificador de la ruta
+          uri: http://localhost:8081 
+          predicates: 
+            - Path=/catalog/** 
+          filters: 
+            - AddRequestHeader=user-request-header, custom-user-request-header
+            - AddResponseHeader=user-response-header, custom-user-response-header 
+
       gateway:
       locator:
         enabled: true
@@ -38,6 +53,7 @@ eureka:
       enabled: true
     service-url:
       default-zone: http://localhost:8761/eureka
+
 
     
     
