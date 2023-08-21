@@ -20,11 +20,11 @@ spring:
 eureka:
   client:
     register-with-eureka: false
-    fetchRegistry: false
+    fetchRegistry: true
     registry-fetch-interval-seconds: 5
     #SE QUITA SERVICE URL EUREKA PARA QUE NO SE REGISTRE (MAS ALLA DE COLOCAR EL   register-with-eureka EN VALOR false )
-    #service-url:
-      #defaultZone: http://localhost:8761/eureka
+    service-url:
+      defaultZone: http://localhost:8761/eureka
     #instance:
     #prefer-ip-address: true
       #instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
