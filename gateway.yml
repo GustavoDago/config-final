@@ -17,15 +17,6 @@ spring:
       predicates:
         - Path=/api/v1/catalog/**
 
-eureka:
-  client:
-    register-with-eureka: false
-    fetchRegistry: true
-    registry-fetch-interval-seconds: 5
-    # SE QUITA SERVICE URL EUREKA PARA QUE NO SE REGISTRE (MAS ALLA DE COLOCAR EL register-with-eureka EN VALOR false)
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-
 
 eureka:
   client:
