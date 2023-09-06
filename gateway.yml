@@ -15,25 +15,22 @@ spring:
     - id: id-catalog-service
       uri: lb://catalog-service
       predicates:
-        - Path=/api/v1/catalog/**
+        - Path=/catalog/**
 
 
 eureka:
   client:
-    register-with-eureka: false
-    fetchRegistry: true
+    register-with-eureka: true
+    fetch-registry: true
     registry-fetch-interval-seconds: 5
-    #SE QUITA SERVICE URL EUREKA PARA QUE NO SE REGISTRE (MAS ALLA DE COLOCAR EL   register-with-eureka EN VALOR false )
+    healthcheck:
+      enabled: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
-    #instance:
-    #prefer-ip-address: true
-      #instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-      #lease-renewal-interval-in-seconds: 5
-      #lease-expiration-duration-in-seconds: 10
-      #health-check-url-path: /actuator/health
-  #server:
-    #enable-self-preservation: false
+      default-zone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
 
 
 #si fuera con puerto definido en la ruta de catalog y movies

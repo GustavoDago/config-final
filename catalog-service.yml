@@ -27,14 +27,29 @@ eureka:
       lease-renewal-interval-in-seconds: 5
       lease-expiration-duration-in-seconds: 10
   
-  # CONFIGURACIÓN CORRESPONDENTE A LA IMPLEMENTACIÓN DE FEIGN
+  # CONFIGURACIÓN CORRESPONDIENTE A LA IMPLEMENTACIÓN DE FEIGN
   feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        
+    client:
+      config:
+        default:
+          connectTimeout: 5000
+          readTimeout: 5000
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      movies: # se define el nombre de la instancia que se utilizará en el método donde se aplique circuitBreaker
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowType: COUNT_BASED
+        minimumNumberOfCalls: 20
+        waitDurationInOpenState: 50s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+        automaticTransitionFromOpenToHlafOpenEnabled: true
+
+
   # EVALUAR SUMAR DEPENDENCIA PARA MEJORAR PREFORMANCE / Tolerancia a fallos
   #hystrix:
     #enabled: true
