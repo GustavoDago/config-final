@@ -1,6 +1,5 @@
 server:
-  port: ${PORT:${SERVER_PORT:0}}
-
+  port: 8084
 spring:
   application:
     name: catalog-service
@@ -68,6 +67,12 @@ resilience4j:
         failureRateThreshold: 50
         eventConsumerBufferSize: 10
         automaticTransitionFromOpenToHlafOpenEnabled: true
+  retry:
+    instances:
+      movies:
+        maxAttemps: 3
+        waitDuration: 1000
+        retryExceptions[0]: feign.FeignException$InternalServerError
 
 
   # EVALUAR SUMAR DEPENDENCIA PARA MEJORAR PREFORMANCE / Tolerancia a fallos
